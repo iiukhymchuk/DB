@@ -1,0 +1,56 @@
+﻿@model List<QueryResults.Models.Person>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Search criteria</h2>
+<form method="post" action="/Home/Index">
+    <table>
+        <tr>
+            <td><p>Enter person name</p></td>
+            <td><input type="text" name="Person" /> </td>
+        </tr>
+        <tr>
+            <td><p>Enter address</p></td>
+            <td><input type="text" name="Address" /> </td>
+        </tr>
+        <tr>
+            <td><p>Enter city</p></td>
+            <td><input type="text" name="City" /> </td>
+        </tr>
+        <tr>
+            <td><p>Enter state</p></td>
+            <td><input type="text" name="State" /> </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /> </td>
+            <td></td>
+        </tr>
+    </table>
+</form>
+
+@if (Model != null && Model.Count > 0)
+{
+    <h2>Search result</h2>
+    <table border="1" cellpadding="4">
+        <tr>
+            <th>Name</th>
+            <th>AddressType</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+        </tr>
+
+        @foreach (var row in Model)
+        {
+            <tr>
+                <td>@row.FullName</td>
+                <td>@row.AddressType</td>
+                <td>@row.Address</td>
+                <td>@row.City</td>
+                <td>@row.State</td>
+            </tr>
+        }
+    </table>
+}
