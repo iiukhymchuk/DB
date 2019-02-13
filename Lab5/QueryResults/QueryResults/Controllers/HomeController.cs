@@ -35,7 +35,7 @@ namespace QueryResults.Controllers
                 command.Parameters.AddWithValue("@name", form.Person ?? string.Empty);
                 command.Parameters.AddWithValue("@address", form.Address ?? string.Empty);
                 command.Parameters.AddWithValue("@city", form.City ?? string.Empty);
-                command.Parameters.AddWithValue("@state", form.Person ?? string.Empty);
+                command.Parameters.AddWithValue("@state", form.State ?? string.Empty);
 
                 var reader = command.ExecuteReader();
 
